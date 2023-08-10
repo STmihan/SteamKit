@@ -10,7 +10,7 @@ if (!$env:DevEnvDir) {
         throw "Failed to location Visual Studio PowerShell module"
     }
 
-    Enter-VsDevShell e751ca72
+    Enter-VsDevShell
 }
 
 $vcpkg = Get-Command -Name vcpkg -CommandType Application -ErrorAction SilentlyContinue
