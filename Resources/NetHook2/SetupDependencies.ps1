@@ -17,6 +17,9 @@ $vcpkg = Get-Command -Name vcpkg -CommandType Application -ErrorAction SilentlyC
 if (!$vcpkg) {
     if ($env:CI)
     {
+        Write-Host "CI environment detected"
+
+        Write-Host "Downloading vcpkg"
         $vcpkgDir = Join-Path -Path (Get-Location.Path) -ChildPath 'vcpkg'
         if (!(Test-Path -Path $vcpkgDir)) {
             git clone --depth 1 "https://github.com/Microsoft/vcpkg.git"
@@ -33,6 +36,8 @@ if (!$vcpkg) {
     } else {
         Write-Warning "vcpkg is required but not found. Please see https://vcpkg.io/en/getting-started to install it"
     }
+} else {
+    Write-Host "Found vcpkg at $($vcpkg.Source)"
 }
 
 # todo: compile or download protoc and generate steammessages_base.pb.{h|cpp}
