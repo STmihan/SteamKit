@@ -13,33 +13,45 @@ if (!$env:DevEnvDir) {
     Enter-VsDevShell -VsInstallPath $vsInstallDir
 }
 
-$vcpkg = Get-Command -Name vcpkg -CommandType Application -ErrorAction SilentlyContinue
-if (!$vcpkg) {
-    if ($env:CI) {
-        Write-Host "CI environment detected"
-
-        Write-Host "Downloading vcpkg"
-        $vcpkgDir = Join-Path -Path (Get-Location.Path) -ChildPath 'vcpkg'
-        if (!(Test-Path -Path $vcpkgDir)) {
-            git clone --depth 1 "https://github.com/Microsoft/vcpkg.git"
-        } else {
-            Set-Location vcpkg
-            git pull
-            Set-Location ..
-        }
-
-        .\vcpkg\bootstrap-vcpkg.bat
-
-        $env:Path = "PATH=$vcpkgDir;$env:Path"
-    } else {
-        Write-Warning "vcpkg is required but not found. Please see https://vcpkg.io/en/getting-started to install it"
+if ($env:VCPKG_ROOT)
+{
+    $vcpkgTmp = Join-Path -Path $env:VCPKG_ROOT -ChildPath 'vcpkg.exe'
+    if (!Test-Path -Path $vcpkgTmp -PathType Leaf) {
+        $vcpkg = $vcpkgTmp
     }
-} else {
+}
+
+if (!$vcpkg) {
+    $vcpkg = Get-Command -Name vcpkg -CommandType Application -ErrorAction SilentlyContinue |
+            Select-Object -First 1 |
+            Select-Object -ExpandProperty Source
+    if ($vcpkg) {
+        Write-Host "Found vcpkg at $($vcpkg.Source)"
+    } else {
+        if ($env:CI) {
+            Write-Host "Downloading vcpkg"
+            $vcpkgDir = Join-Path -Path (Get-Location.Path) -ChildPath 'vcpkg'
+            if (!(Test-Path -Path $vcpkgDir)) {
+                git clone --depth 1 "https://github.com/Microsoft/vcpkg.git"
+            } else {
+                Set-Location vcpkg
+                git pull
+                Set-Location ..
+            }
+    
+            .\vcpkg\bootstrap-vcpkg.bat
+    
+            $env:Path = "PATH=$vcpkgDir;$env:Path"
+        }
+        else {
+            Write-Warning "vcpkg is required but not found. Please see https://vcpkg.io/en/getting-started to install it"
+        }
+    }
+}
+else {
     Write-Host "Found vcpkg at $($vcpkg.Source)"
 }
 
-if ($env:CI) {
-    vcpkg integrate install
-}
+vcpkg integrate install
 
 # todo: compile or download protoc and generate steammessages_base.pb.{h|cpp}
