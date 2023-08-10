@@ -10,10 +10,6 @@ if not defined DevEnvDir (
     )
 )
 
-:add_curr_dir_to_path
-SET "PATH=%CD%\vcpkg;%PATH%"
-EXIT /B 0
-
 echo "GITHUB_ACTIONS=%GITHUB_ACTIONS%"
 echo "GITHUB_ACTION=%GITHUB_ACTION%"
 echo "CI=%CI%"
@@ -41,5 +37,9 @@ if %ERRORLEVEL%==1 (
 )
 
 echo "PATH=%PATH%"
+
+:add_curr_dir_to_path
+SET "PATH=%CD%\vcpkg;%PATH%"
+EXIT /B 0
 
 rem todo: compile or download protoc and generate steammessages_base.pb.{h|cpp}
