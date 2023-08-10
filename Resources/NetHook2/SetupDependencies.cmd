@@ -14,6 +14,8 @@ if not defined DevEnvDir (
 SET "PATH=%CD%\vcpkg;%PATH%"
 EXIT /B 0
 
+set
+
 where.exe /q vcpkg
 if %ERRORLEVEL%==1 (
     if defined GITHUB_ACTIONS (
