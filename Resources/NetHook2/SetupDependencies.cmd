@@ -10,6 +10,10 @@ if not defined DevEnvDir (
     )
 )
 
+:add_curr_dir_to_path
+SET "PATH=%CD%\vcpkg;%PATH%"
+EXIT /B 0
+
 where.exe /q vcpkg
 if %ERRORLEVEL%==1 (
     if defined GITHUB_ACTIONS (
@@ -22,7 +26,7 @@ if %ERRORLEVEL%==1 (
         )
 
         call ".\vcpkg\bootstrap-vcpkg.bat"
-        SET PATH=%CD%\vcpkg;%PATH%
+        call :add_curr_dir_to_path
 
         vcpkg integrate install
     ) else (
