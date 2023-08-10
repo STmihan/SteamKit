@@ -21,8 +21,7 @@ if %ERRORLEVEL%==1 (
             cd ..
         )
         call ".\vcpkg\bootstrap-vcpkg.bat"
-        SET "PATH=%CD%\vcpkg;%PATH%"
-        vcpkg integrate install
+        vcpkg\vcpkg.exe integrate install
     ) else (
         echo "vcpkg is required but not found. Please see https://vcpkg.io/en/getting-started to install it
     )    
