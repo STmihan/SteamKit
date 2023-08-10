@@ -14,7 +14,11 @@ if not defined DevEnvDir (
 SET "PATH=%CD%\vcpkg;%PATH%"
 EXIT /B 0
 
-set
+echo "GITHUB_ACTIONS=%GITHUB_ACTIONS%"
+echo "GITHUB_ACTION=%GITHUB_ACTION%"
+echo "CI=%CI%"
+echo "CD=%CD%"
+echo "PATH=%PATH%"
 
 where.exe /q vcpkg
 if %ERRORLEVEL%==1 (
