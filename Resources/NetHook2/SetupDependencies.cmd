@@ -22,7 +22,7 @@ if %ERRORLEVEL%==1 (
         )
 
         call ".\vcpkg\bootstrap-vcpkg.bat"
-        SET "PATH=%CD%\vcpkg;%PATH%"
+        SET PATH=%CD%\vcpkg;%PATH%
 
         vcpkg integrate install
     ) else (
