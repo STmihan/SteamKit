@@ -12,13 +12,18 @@ if not defined DevEnvDir (
 
 where.exe /q vcpkg
 if %ERRORLEVEL%==1 (
-    if defined GITHUB_ACTIONS (
+    if not exist "vcpkg/" (
         git clone --depth 1 "https://github.com/Microsoft/vcpkg.git"
-        call ".\vcpkg\bootstrap-vcpkg.bat"
-        vcpkg\vcpkg.exe integrate install
     ) else (
-        echo "vcpkg is required but not found. Please see https://vcpkg.io/en/getting-started to install it
-    )    
+        cd vcpkg
+        git pull
+        cd ..
+    )
+
+    call ".\vcpkg\bootstrap-vcpkg.bat"
+    SET "PATH=%CD%\vcpkg;%PATH%"
 )
+
+vcpkg integrate install
 
 rem todo: compile or download protoc and generate steammessages_base.pb.{h|cpp}
