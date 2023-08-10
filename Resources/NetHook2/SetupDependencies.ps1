@@ -16,7 +16,7 @@ if (!$env:DevEnvDir) {
 if ($env:VCPKG_ROOT)
 {
     $vcpkgTmp = Join-Path -Path $env:VCPKG_ROOT -ChildPath 'vcpkg.exe'
-    if (!Test-Path -Path $vcpkgTmp -PathType Leaf) {
+    if (!(Test-Path -Path $vcpkgTmp -PathType Leaf)) {
         $vcpkg = $vcpkgTmp
     }
 }
