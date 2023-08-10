@@ -15,8 +15,7 @@ if (!$env:DevEnvDir) {
 
 $vcpkg = Get-Command -Name vcpkg -CommandType Application -ErrorAction SilentlyContinue
 if (!$vcpkg) {
-    if ($env:CI)
-    {
+    if ($env:CI) {
         Write-Host "CI environment detected"
 
         Write-Host "Downloading vcpkg"
@@ -32,12 +31,15 @@ if (!$vcpkg) {
         .\vcpkg\bootstrap-vcpkg.bat
 
         $env:Path = "PATH=$vcpkgDir;$env:Path"
-        vcpkg integrate install
     } else {
         Write-Warning "vcpkg is required but not found. Please see https://vcpkg.io/en/getting-started to install it"
     }
 } else {
     Write-Host "Found vcpkg at $($vcpkg.Source)"
+}
+
+if ($env:CI) {
+    vcpkg integrate install
 }
 
 # todo: compile or download protoc and generate steammessages_base.pb.{h|cpp}
