@@ -13,13 +13,7 @@ if not defined DevEnvDir (
 where.exe /q vcpkg
 if %ERRORLEVEL%==1 (
     if defined CI (
-        if not exist "vcpkg/" (
-            git clone --depth 1 "https://github.com/Microsoft/vcpkg.git"
-        ) else (
-            cd vcpkg
-            git pull
-            cd ..
-        )
+        git clone --depth 1 "https://github.com/Microsoft/vcpkg.git"
         call ".\vcpkg\bootstrap-vcpkg.bat"
         vcpkg\vcpkg.exe integrate install
     ) else (
