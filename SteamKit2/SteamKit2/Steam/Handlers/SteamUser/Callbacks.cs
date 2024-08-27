@@ -140,9 +140,9 @@ namespace SteamKit2
 
                 this.IPCountryCode = resp.ip_country_code;
 
-#pragma warning disable CS0618 // Type or member is obsolete
-                this.WebAPIUserNonce = resp.webapi_authenticate_user_nonce;
-#pragma warning restore CS0618 // Type or member is obsolete
+// #pragma warning disable CS0618 // Type or member is obsolete
+//                 this.WebAPIUserNonce = resp.webapi_authenticate_user_nonce;
+// #pragma warning restore CS0618 // Type or member is obsolete
 
                 this.VanityURL = resp.vanity_url;
 

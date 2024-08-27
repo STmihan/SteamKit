@@ -62,31 +62,53 @@ namespace SteamKit2.GC.CSGO.Internal
     }
 
     [global::ProtoBuf.ProtoContract()]
-    public partial class CMsgApplyAutograph : global::ProtoBuf.IExtensible
+    public partial class CMsgGCDev_SchemaReservationRequest : global::ProtoBuf.IExtensible
     {
         private global::ProtoBuf.IExtension __pbn__extensionData;
         global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
             => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
 
         [global::ProtoBuf.ProtoMember(1)]
-        public ulong autograph_item_id
+        [global::System.ComponentModel.DefaultValue("")]
+        public string schema_typename
         {
-            get => __pbn__autograph_item_id.GetValueOrDefault();
-            set => __pbn__autograph_item_id = value;
+            get => __pbn__schema_typename ?? "";
+            set => __pbn__schema_typename = value;
         }
-        public bool ShouldSerializeautograph_item_id() => __pbn__autograph_item_id != null;
-        public void Resetautograph_item_id() => __pbn__autograph_item_id = null;
-        private ulong? __pbn__autograph_item_id;
+        public bool ShouldSerializeschema_typename() => __pbn__schema_typename != null;
+        public void Resetschema_typename() => __pbn__schema_typename = null;
+        private string __pbn__schema_typename;
 
         [global::ProtoBuf.ProtoMember(2)]
-        public ulong item_item_id
+        [global::System.ComponentModel.DefaultValue("")]
+        public string instance_name
         {
-            get => __pbn__item_item_id.GetValueOrDefault();
-            set => __pbn__item_item_id = value;
+            get => __pbn__instance_name ?? "";
+            set => __pbn__instance_name = value;
         }
-        public bool ShouldSerializeitem_item_id() => __pbn__item_item_id != null;
-        public void Resetitem_item_id() => __pbn__item_item_id = null;
-        private ulong? __pbn__item_item_id;
+        public bool ShouldSerializeinstance_name() => __pbn__instance_name != null;
+        public void Resetinstance_name() => __pbn__instance_name = null;
+        private string __pbn__instance_name;
+
+        [global::ProtoBuf.ProtoMember(3)]
+        public ulong context
+        {
+            get => __pbn__context.GetValueOrDefault();
+            set => __pbn__context = value;
+        }
+        public bool ShouldSerializecontext() => __pbn__context != null;
+        public void Resetcontext() => __pbn__context = null;
+        private ulong? __pbn__context;
+
+        [global::ProtoBuf.ProtoMember(4)]
+        public ulong id
+        {
+            get => __pbn__id.GetValueOrDefault();
+            set => __pbn__id = value;
+        }
+        public bool ShouldSerializeid() => __pbn__id != null;
+        public void Resetid() => __pbn__id = null;
+        private ulong? __pbn__id;
 
     }
 
@@ -157,26 +179,6 @@ namespace SteamKit2.GC.CSGO.Internal
         public bool ShouldSerializerequest() => __pbn__request != null;
         public void Resetrequest() => __pbn__request = null;
         private uint? __pbn__request;
-
-    }
-
-    [global::ProtoBuf.ProtoContract()]
-    public partial class CAttribute_String : global::ProtoBuf.IExtensible
-    {
-        private global::ProtoBuf.IExtension __pbn__extensionData;
-        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
-            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
-
-        [global::ProtoBuf.ProtoMember(1)]
-        [global::System.ComponentModel.DefaultValue("")]
-        public string value
-        {
-            get => __pbn__value ?? "";
-            set => __pbn__value = value;
-        }
-        public bool ShouldSerializevalue() => __pbn__value != null;
-        public void Resetvalue() => __pbn__value = null;
-        private string __pbn__value;
 
     }
 
@@ -296,6 +298,7 @@ namespace SteamKit2.GC.CSGO.Internal
         k_EMsgGCDev_NewItemRequest = 2001,
         k_EMsgGCDev_NewItemRequestResponse = 2002,
         k_EMsgGCDev_PaintKitDropItem = 2003,
+        k_EMsgGCDev_SchemaReservationRequest = 2004,
         k_EMsgGCStoreGetUserData = 2500,
         k_EMsgGCStoreGetUserDataResponse = 2501,
         k_EMsgGCStorePurchaseInit_DEPRECATED = 2502,
@@ -328,6 +331,9 @@ namespace SteamKit2.GC.CSGO.Internal
         k_EMsgGCRecurringSubscriptionStatus = 2530,
         k_EMsgGCAdjustEquipSlotsManual = 2531,
         k_EMsgGCAdjustEquipSlotsShuffle = 2532,
+        k_EMsgGCNameItemAndEquip = 2533,
+        k_EMsgGCOpenCrate = 2534,
+        k_EMsgGCAcknowledgeRentalExpiration = 2535,
     }
 
     [global::ProtoBuf.ProtoContract()]

@@ -1232,6 +1232,9 @@ namespace SteamKit2.GC.Dota.Internal
         EVENT_ID_TEAM_2023_TOUR3 = 43,
         EVENT_ID_INTERNATIONAL_2023 = 45,
         EVENT_ID_10TH_ANNIVERSARY = 46,
+        EVENT_ID_CROWNFALL = 47,
+        EVENT_ID_FROSTIVUS_2023 = 48,
+        EVENT_ID_INTERNATIONAL_2024 = 49,
     }
 
     [global::ProtoBuf.ProtoContract()]
@@ -1262,6 +1265,7 @@ namespace SteamKit2.GC.Dota.Internal
         DOTA_LEAVER_NEVER_CONNECTED_TOO_LONG = 6,
         DOTA_LEAVER_FAILED_TO_READY_UP = 7,
         DOTA_LEAVER_DECLINED = 8,
+        DOTA_LEAVER_DECLINED_REQUEUE = 9,
     }
 
     [global::ProtoBuf.ProtoContract()]
@@ -1399,6 +1403,8 @@ namespace SteamKit2.GC.Dota.Internal
         DOTA_COMM_TYPE_RANKEDMATCHMAKE = 11,
         DOTA_COMM_TYPE_DROPS = 12,
         DOTA_COMM_TYPE_NEWPLAYER_EXPERT = 13,
+        DOTA_COMM_TYPE_COACHED = 14,
+        DOTA_COMM_TYPE_MAPDRAWING = 15,
     }
 
     [global::ProtoBuf.ProtoContract()]
@@ -1407,10 +1413,11 @@ namespace SteamKit2.GC.Dota.Internal
         DOTA_COMM_LEVEL_NONE = 0,
         DOTA_COMM_LEVEL_COOLDOWN = 1,
         DOTA_COMM_LEVEL_PINGS = 2,
-        DOTA_COMM_LEVEL_CHAT = 3,
-        DOTA_COMM_LEVEL_TIPPING = 4,
-        DOTA_COMM_LEVEL_VOICE = 5,
-        DOTA_COMM_LEVEL_ALLIED_ABILITY = 6,
+        DOTA_COMM_LEVEL_MAPDRAWING = 3,
+        DOTA_COMM_LEVEL_CHAT = 4,
+        DOTA_COMM_LEVEL_TIPPING = 5,
+        DOTA_COMM_LEVEL_VOICE = 6,
+        DOTA_COMM_LEVEL_ALLIED_ABILITY = 7,
     }
 
     [global::ProtoBuf.ProtoContract()]
@@ -1466,6 +1473,7 @@ namespace SteamKit2.GC.Dota.Internal
         DOTALobbyReadyState_UNDECLARED = 0,
         DOTALobbyReadyState_ACCEPTED = 1,
         DOTALobbyReadyState_DECLINED = 2,
+        DOTALobbyReadyState_DECLINED_REQUEUE = 3,
     }
 
     [global::ProtoBuf.ProtoContract()]
@@ -1902,6 +1910,15 @@ namespace SteamKit2.GC.Dota.Internal
         k_EOverwatchReportReason_Griefing = 3,
         k_EOverwatchReportReason_Suspicious = 4,
         k_EOverwatchReportReason_AbilityAbuse = 5,
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public enum ECandyShopUpgrade
+    {
+        k_ECandyShopUpgradeInvalid = -1,
+        k_ECandyShopUpgrade_InventorySize = 0,
+        k_ECandyShopUpgrade_RewardShelf = 1,
+        k_ECandyShopUpgrade_ExtraExchangeRecipe = 2,
     }
 
 }

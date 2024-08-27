@@ -10,6 +10,96 @@ namespace SteamKit2.Internal
 {
 
     [global::ProtoBuf.ProtoContract()]
+    public partial class CPlayer_GetRecentPlaytimeSessionsForChild_Request : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1)]
+        public ulong steamid
+        {
+            get => __pbn__steamid.GetValueOrDefault();
+            set => __pbn__steamid = value;
+        }
+        public bool ShouldSerializesteamid() => __pbn__steamid != null;
+        public void Resetsteamid() => __pbn__steamid = null;
+        private ulong? __pbn__steamid;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class CPlayer_GetRecentPlaytimeSessionsForChild_Response : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1)]
+        public global::System.Collections.Generic.List<PlaytimeSession> sessions { get; } = new global::System.Collections.Generic.List<PlaytimeSession>();
+
+        [global::ProtoBuf.ProtoContract()]
+        public partial class PlaytimeSession : global::ProtoBuf.IExtensible
+        {
+            private global::ProtoBuf.IExtension __pbn__extensionData;
+            global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+                => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+            [global::ProtoBuf.ProtoMember(1)]
+            public uint time_start
+            {
+                get => __pbn__time_start.GetValueOrDefault();
+                set => __pbn__time_start = value;
+            }
+            public bool ShouldSerializetime_start() => __pbn__time_start != null;
+            public void Resettime_start() => __pbn__time_start = null;
+            private uint? __pbn__time_start;
+
+            [global::ProtoBuf.ProtoMember(2)]
+            public uint time_end
+            {
+                get => __pbn__time_end.GetValueOrDefault();
+                set => __pbn__time_end = value;
+            }
+            public bool ShouldSerializetime_end() => __pbn__time_end != null;
+            public void Resettime_end() => __pbn__time_end = null;
+            private uint? __pbn__time_end;
+
+            [global::ProtoBuf.ProtoMember(3)]
+            public uint appid
+            {
+                get => __pbn__appid.GetValueOrDefault();
+                set => __pbn__appid = value;
+            }
+            public bool ShouldSerializeappid() => __pbn__appid != null;
+            public void Resetappid() => __pbn__appid = null;
+            private uint? __pbn__appid;
+
+            [global::ProtoBuf.ProtoMember(4)]
+            public uint device_type
+            {
+                get => __pbn__device_type.GetValueOrDefault();
+                set => __pbn__device_type = value;
+            }
+            public bool ShouldSerializedevice_type() => __pbn__device_type != null;
+            public void Resetdevice_type() => __pbn__device_type = null;
+            private uint? __pbn__device_type;
+
+            [global::ProtoBuf.ProtoMember(5)]
+            public bool disconnected
+            {
+                get => __pbn__disconnected.GetValueOrDefault();
+                set => __pbn__disconnected = value;
+            }
+            public bool ShouldSerializedisconnected() => __pbn__disconnected != null;
+            public void Resetdisconnected() => __pbn__disconnected = null;
+            private bool? __pbn__disconnected;
+
+        }
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
     public partial class CPlayer_GetPlayerLinkDetails_Request : global::ProtoBuf.IExtensible
     {
         private global::ProtoBuf.IExtension __pbn__extensionData;
@@ -370,6 +460,16 @@ namespace SteamKit2.Internal
                 public void Resetgame_device_name() => __pbn__game_device_name = null;
                 private string __pbn__game_device_name;
 
+                [global::ProtoBuf.ProtoMember(22)]
+                public bool game_is_private
+                {
+                    get => __pbn__game_is_private.GetValueOrDefault();
+                    set => __pbn__game_is_private = value;
+                }
+                public bool ShouldSerializegame_is_private() => __pbn__game_is_private != null;
+                public void Resetgame_is_private() => __pbn__game_is_private = null;
+                private bool? __pbn__game_is_private;
+
             }
 
         }
@@ -621,6 +721,16 @@ namespace SteamKit2.Internal
             public bool ShouldSerializeplaytime_linux_forever() => __pbn__playtime_linux_forever != null;
             public void Resetplaytime_linux_forever() => __pbn__playtime_linux_forever = null;
             private int? __pbn__playtime_linux_forever;
+
+            [global::ProtoBuf.ProtoMember(20)]
+            public int playtime_deck_forever
+            {
+                get => __pbn__playtime_deck_forever.GetValueOrDefault();
+                set => __pbn__playtime_deck_forever = value;
+            }
+            public bool ShouldSerializeplaytime_deck_forever() => __pbn__playtime_deck_forever != null;
+            public void Resetplaytime_deck_forever() => __pbn__playtime_deck_forever = null;
+            private int? __pbn__playtime_deck_forever;
 
             [global::ProtoBuf.ProtoMember(11)]
             public uint rtime_last_played
@@ -1761,6 +1871,76 @@ namespace SteamKit2.Internal
     }
 
     [global::ProtoBuf.ProtoContract()]
+    public partial class CPlayer_GetCommunityBadgeProgress_Request : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1)]
+        public ulong steamid
+        {
+            get => __pbn__steamid.GetValueOrDefault();
+            set => __pbn__steamid = value;
+        }
+        public bool ShouldSerializesteamid() => __pbn__steamid != null;
+        public void Resetsteamid() => __pbn__steamid = null;
+        private ulong? __pbn__steamid;
+
+        [global::ProtoBuf.ProtoMember(2)]
+        public int badgeid
+        {
+            get => __pbn__badgeid.GetValueOrDefault();
+            set => __pbn__badgeid = value;
+        }
+        public bool ShouldSerializebadgeid() => __pbn__badgeid != null;
+        public void Resetbadgeid() => __pbn__badgeid = null;
+        private int? __pbn__badgeid;
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public partial class CPlayer_GetCommunityBadgeProgress_Response : global::ProtoBuf.IExtensible
+    {
+        private global::ProtoBuf.IExtension __pbn__extensionData;
+        global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+            => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+        [global::ProtoBuf.ProtoMember(1)]
+        public global::System.Collections.Generic.List<Quest> quests { get; } = new global::System.Collections.Generic.List<Quest>();
+
+        [global::ProtoBuf.ProtoContract()]
+        public partial class Quest : global::ProtoBuf.IExtensible
+        {
+            private global::ProtoBuf.IExtension __pbn__extensionData;
+            global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+                => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+            [global::ProtoBuf.ProtoMember(1)]
+            public uint questid
+            {
+                get => __pbn__questid.GetValueOrDefault();
+                set => __pbn__questid = value;
+            }
+            public bool ShouldSerializequestid() => __pbn__questid != null;
+            public void Resetquestid() => __pbn__questid = null;
+            private uint? __pbn__questid;
+
+            [global::ProtoBuf.ProtoMember(2)]
+            public bool completed
+            {
+                get => __pbn__completed.GetValueOrDefault();
+                set => __pbn__completed = value;
+            }
+            public bool ShouldSerializecompleted() => __pbn__completed != null;
+            public void Resetcompleted() => __pbn__completed = null;
+            private bool? __pbn__completed;
+
+        }
+
+    }
+
+    [global::ProtoBuf.ProtoContract()]
     public partial class CPlayer_GetTopAchievementsForGames_Request : global::ProtoBuf.IExtensible
     {
         private global::ProtoBuf.IExtension __pbn__extensionData;
@@ -1972,6 +2152,16 @@ namespace SteamKit2.Internal
         [global::ProtoBuf.ProtoMember(3)]
         public global::System.Collections.Generic.List<uint> appids { get; } = new global::System.Collections.Generic.List<uint>();
 
+        [global::ProtoBuf.ProtoMember(4)]
+        public bool include_unvetted_apps
+        {
+            get => __pbn__include_unvetted_apps.GetValueOrDefault();
+            set => __pbn__include_unvetted_apps = value;
+        }
+        public bool ShouldSerializeinclude_unvetted_apps() => __pbn__include_unvetted_apps != null;
+        public void Resetinclude_unvetted_apps() => __pbn__include_unvetted_apps = null;
+        private bool? __pbn__include_unvetted_apps;
+
     }
 
     [global::ProtoBuf.ProtoContract()]
@@ -2050,6 +2240,16 @@ namespace SteamKit2.Internal
             public bool ShouldSerializecache_time() => __pbn__cache_time != null;
             public void Resetcache_time() => __pbn__cache_time = null;
             private uint? __pbn__cache_time;
+
+            [global::ProtoBuf.ProtoMember(7)]
+            public bool vetted
+            {
+                get => __pbn__vetted.GetValueOrDefault();
+                set => __pbn__vetted = value;
+            }
+            public bool ShouldSerializevetted() => __pbn__vetted != null;
+            public void Resetvetted() => __pbn__vetted = null;
+            private bool? __pbn__vetted;
 
         }
 
@@ -3202,6 +3402,16 @@ namespace SteamKit2.Internal
             public void Resetplaytime_linux_forever() => __pbn__playtime_linux_forever = null;
             private int? __pbn__playtime_linux_forever;
 
+            [global::ProtoBuf.ProtoMember(16)]
+            public int playtime_deck_forever
+            {
+                get => __pbn__playtime_deck_forever.GetValueOrDefault();
+                set => __pbn__playtime_deck_forever = value;
+            }
+            public bool ShouldSerializeplaytime_deck_forever() => __pbn__playtime_deck_forever != null;
+            public void Resetplaytime_deck_forever() => __pbn__playtime_deck_forever = null;
+            private int? __pbn__playtime_deck_forever;
+
             [global::ProtoBuf.ProtoMember(9)]
             public uint first_windows_playtime
             {
@@ -3232,6 +3442,16 @@ namespace SteamKit2.Internal
             public void Resetfirst_linux_playtime() => __pbn__first_linux_playtime = null;
             private uint? __pbn__first_linux_playtime;
 
+            [global::ProtoBuf.ProtoMember(17)]
+            public uint first_deck_playtime
+            {
+                get => __pbn__first_deck_playtime.GetValueOrDefault();
+                set => __pbn__first_deck_playtime = value;
+            }
+            public bool ShouldSerializefirst_deck_playtime() => __pbn__first_deck_playtime != null;
+            public void Resetfirst_deck_playtime() => __pbn__first_deck_playtime = null;
+            private uint? __pbn__first_deck_playtime;
+
             [global::ProtoBuf.ProtoMember(12)]
             public uint last_windows_playtime
             {
@@ -3261,6 +3481,16 @@ namespace SteamKit2.Internal
             public bool ShouldSerializelast_linux_playtime() => __pbn__last_linux_playtime != null;
             public void Resetlast_linux_playtime() => __pbn__last_linux_playtime = null;
             private uint? __pbn__last_linux_playtime;
+
+            [global::ProtoBuf.ProtoMember(18)]
+            public uint last_deck_playtime
+            {
+                get => __pbn__last_deck_playtime.GetValueOrDefault();
+                set => __pbn__last_deck_playtime = value;
+            }
+            public bool ShouldSerializelast_deck_playtime() => __pbn__last_deck_playtime != null;
+            public void Resetlast_deck_playtime() => __pbn__last_deck_playtime = null;
+            private uint? __pbn__last_deck_playtime;
 
             [global::ProtoBuf.ProtoMember(15)]
             public uint playtime_disconnected
@@ -4489,6 +4719,7 @@ namespace SteamKit2.Internal
 
     public interface IPlayer
     {
+        CPlayer_GetRecentPlaytimeSessionsForChild_Response GetRecentPlaytimeSessionsForChild(CPlayer_GetRecentPlaytimeSessionsForChild_Request request);
         CPlayer_GetPlayerLinkDetails_Response GetPlayerLinkDetails(CPlayer_GetPlayerLinkDetails_Request request);
         CPlayer_GetMutualFriendsForIncomingInvites_Response GetMutualFriendsForIncomingInvites(CPlayer_GetMutualFriendsForIncomingInvites_Request request);
         CPlayer_GetOwnedGames_Response GetOwnedGames(CPlayer_GetOwnedGames_Request request);
@@ -4509,6 +4740,7 @@ namespace SteamKit2.Internal
         CPlayer_GetProfileItemsEquipped_Response GetProfileItemsEquipped(CPlayer_GetProfileItemsEquipped_Request request);
         CPlayer_SetEquippedProfileItemFlags_Response SetEquippedProfileItemFlags(CPlayer_SetEquippedProfileItemFlags_Request request);
         CPlayer_GetEmoticonList_Response GetEmoticonList(CPlayer_GetEmoticonList_Request request);
+        CPlayer_GetCommunityBadgeProgress_Response GetCommunityBadgeProgress(CPlayer_GetCommunityBadgeProgress_Request request);
         CPlayer_GetTopAchievementsForGames_Response GetTopAchievementsForGames(CPlayer_GetTopAchievementsForGames_Request request);
         CPlayer_GetAchievementsProgress_Response GetAchievementsProgress(CPlayer_GetAchievementsProgress_Request request);
         CPlayer_GetGameAchievements_Response GetGameAchievements(CPlayer_GetGameAchievements_Request request);
